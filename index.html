@@ -44,7 +44,7 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 </form>
             </div>
-            <div v-for="(element, index) in contacts" class="left-items border-bottom d-flex">
+            <div @click="changeContact(index)" v-for="(element, index) in contacts" class="left-items border-bottom d-flex">
                 <div class="d-flex align-items-center gap-3 ms-2">
                     <img :src="element.avatar" alt="avatar">
                     <div class="d-flex flex-column">
@@ -64,9 +64,9 @@
             <!-- Nav-bar interna alla chat -->
             <div id="info-chat" class="background-leggerogrigio d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-3 ms-2">
-                    <img src="./assets/img/avatar_1.jpg" alt="">
+                    <img :src="contacts[currentContact].avatar" alt="">
                     <div class="d-flex flex-column">
-                        <span class="fs-5">Michele</span>
+                        <span class="fs-5">{{ contacts[currentContact].name }}</span>
                         <span class="text-secondary">Ultimo accesso oggi alle 12:00</span>
                     </div>
                 </div>
