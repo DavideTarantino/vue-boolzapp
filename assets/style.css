@@ -35,6 +35,15 @@ body{
     border-radius: 50%;
 }
 
+.contatti-laterali:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+i:hover{
+    cursor: pointer;
+}
+
 .search-contacts{
     height: 5vh;
 }
@@ -62,11 +71,6 @@ body{
     background-color: #EAEAEA;
 }
 
-/* .mine-message{
-    background-color: #D5F9BA;
-    width: min-content;
-    max-width: 30%;
-    padding: 1%;
-    margin-left: 700px;
-} */
-
+.active{
+    background-color: lightgray;
+}
