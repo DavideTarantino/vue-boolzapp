@@ -81,3 +81,14 @@ i:hover{
 .messaggi{
     width: fit-content;
 }
+
+.messaggi-inviati{
+    background-color: #D5F9BA;
+    margin-left: 770px;
+    margin-right: 4%;
+}
+
+.messaggi-ricevuti{
+    background-color: white;
+    margin-left: 30px;
+}

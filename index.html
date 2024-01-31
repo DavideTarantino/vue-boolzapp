@@ -49,7 +49,7 @@
                     <img :src="element.avatar" alt="avatar">
                     <div class="d-flex flex-column">
                         <span class="fs-5">{{ element.name }}</span>
-                        <span class="text-secondary">Ultimo messaggio inviato</span>
+                        <span class="text-secondary"> Ultimo messaggio ricevuto </span>
                     </div>
                 </div>
                 <div class="me-2">
@@ -79,14 +79,16 @@
             
             <!-- Chat -->
             <div id="main-chat" class="border-bottom">
-                <p class="messaggi rounded-3 ps-2 pe-5 py-2 text-start mt-3 me-4" style="background-color: #D5F9BA; margin-left: 770px;">{{ contacts[currentContact].messages[1].message }}</p>
+                <div v-for="(messaggi, index) in contacts[currentContact].messages" :class=" (messaggi.status === 'sent') ? 'messaggi-inviati messaggi rounded' : 'messaggi-ricevuti messaggi rounded'  " >
+                    <p class="ps-2 pe-3 py-2 text-start mt-3 me-5">{{ messaggi.message }}</p>
+                </div>
             </div>
 
             <!-- Barra di scrittura -->
             <div id="barra-di-scrittura" class="background-leggerogrigio sticky-bottom">
                 <form class="d-flex p-1" role="search">
                     <button class="btn fs-3 ms-4" type="submit"><i class="fa-regular fa-face-smile" style="color: black;"></i></button>
-                    <input class="p-3 form-control mt-1 mx-4" type="search" placeholder="Scrivi un messaggio" aria-label="search">
+                    <input v-model="newMessage" class="p-3 form-control mt-1 mx-4" type="text" placeholder="Scrivi un messaggio" aria-label="text">
                     <button class="btn fs-3 me-4" type="submit"><i class="fa-solid fa-microphone" style="color: black;"></i></button>
                 </form>
             </div>
