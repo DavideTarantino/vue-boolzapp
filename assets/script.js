@@ -5,6 +5,7 @@ createApp({
         return {
             newMessage: '',
             currentContact: 0,
+            cercaContatto: '',
             contacts: [
                     {
                         name: 'Michele',
@@ -173,6 +174,34 @@ createApp({
     methods: {
         changeContact(index){
             this.currentContact = index
+        },
+        nuovoMessaggio(){
+            this.contacts[ this.currentContact ].messages.push(
+                {
+                    message: this.newMessage,
+                    status: 'sent'
+                }
+            )
+
+            this.newMessage = ''
+
+            setTimeout( () => {
+                this.contacts[ this.currentContact ].messages.push(
+                    {
+                        message: 'ok',
+                        status: 'received'
+                    }
+                )
+            }, 1000)
+        },
+        cerca(){
+            this.contacts.forEach( (element) => {
+                if( element.name.toLowerCase().includes( this.cercaContatto.toLowerCase())){
+                    element.visible = true
+                }else{
+                    element.visible = false
+                }
+            })
         }
     }
 }).mount('#app') 

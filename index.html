@@ -41,10 +41,10 @@
             <div class="left-items search-contacts border-bottom">
                 <form class="d-flex mt-2" role="search">
                     <button class="btn border ms-1" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: lightgray;"></i></button>
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Username" v-model="cercaContatto" @keyup="cerca">
                 </form>
             </div>
-            <div  :class=" ( currentContact === index ) ? 'active' : '' " @click="changeContact(index)" v-for="(element, index) in contacts" class="left-items border-bottom contatti-laterali d-flex">
+            <div  v-for="(element, index) in contacts" class="left-items border-bottom contatti-laterali" v-show="element.visible" :class=" ( currentContact === index ) ? 'active' : '' , element.visible ? 'd-flex' : '' " @click="changeContact(index)">
                 <div class="d-flex align-items-center gap-3 ms-2">
                     <img :src="element.avatar" alt="avatar">
                     <div class="d-flex flex-column">
@@ -88,7 +88,7 @@
             <div id="barra-di-scrittura" class="background-leggerogrigio sticky-bottom">
                 <form class="d-flex p-1" role="search">
                     <button class="btn fs-3 ms-4" type="submit"><i class="fa-regular fa-face-smile" style="color: black;"></i></button>
-                    <input v-model="newMessage" class="p-3 form-control mt-1 mx-4" type="text" placeholder="Scrivi un messaggio" aria-label="text">
+                    <input @keydown.down="nuovoMessaggio" v-model="newMessage" class="p-3 form-control mt-1 mx-4" type="text" placeholder="Scrivi un messaggio">
                     <button class="btn fs-3 me-4" type="submit"><i class="fa-solid fa-microphone" style="color: black;"></i></button>
                 </form>
             </div>
