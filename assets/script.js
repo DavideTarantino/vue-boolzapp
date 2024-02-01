@@ -176,6 +176,7 @@ createApp({
             this.currentContact = index
         },
         nuovoMessaggio(){
+        
             this.contacts[ this.currentContact ].messages.push(
                 {
                     message: this.newMessage,

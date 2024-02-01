@@ -49,11 +49,11 @@
                     <img :src="element.avatar" alt="avatar">
                     <div class="d-flex flex-column">
                         <span class="fs-5">{{ element.name }}</span>
-                        <span class="text-secondary"> Ultimo messaggio ricevuto </span>
+                        <span style="font-size: 15px;" class="text-secondary">{{ element.messages[element.messages.length -1].message }}</span>
                     </div>
                 </div>
                 <div class="me-2">
-                    <span>12:00</span>
+                    <span style="font-size: 12px;">{{ element.messages[element.messages.length -1].date }}</span>
                 </div>
             </div>
         </div>
@@ -79,8 +79,9 @@
             
             <!-- Chat -->
             <div id="main-chat" class="border-bottom">
-                <div v-for="(messaggi, index) in contacts[currentContact].messages" :class=" (messaggi.status === 'sent') ? 'messaggi-inviati messaggi rounded' : 'messaggi-ricevuti messaggi rounded'  " >
-                    <p class="ps-2 pe-3 py-2 text-start mt-3 me-5">{{ messaggi.message }}</p>
+                <div class="d-flex gap-1 mt-3" v-for="(messaggi, index) in contacts[currentContact].messages" :class=" (messaggi.status === 'sent') ? 'messaggi-inviati messaggi rounded' : 'messaggi-ricevuti messaggi rounded'  " >
+                    <p class="ps-2 py-2">{{ messaggi.message }}</p>
+                    <span class="mt-5 me-1" style="font-size: 10px;">{{ messaggi.date }}</span>
                 </div>
             </div>
 
@@ -88,7 +89,7 @@
             <div id="barra-di-scrittura" class="background-leggerogrigio sticky-bottom">
                 <form class="d-flex p-1" role="search">
                     <button class="btn fs-3 ms-4" type="submit"><i class="fa-regular fa-face-smile" style="color: black;"></i></button>
-                    <input @keydown.down="nuovoMessaggio" v-model="newMessage" class="p-3 form-control mt-1 mx-4" type="text" placeholder="Scrivi un messaggio">
+                    <input @keydown.down="nuovoMessaggio" v-model="newMessage" type="text" class="p-3 form-control mt-1 mx-4" placeholder="Scrivi un messaggio">      
                     <button class="btn fs-3 me-4" type="submit"><i class="fa-solid fa-microphone" style="color: black;"></i></button>
                 </form>
             </div>
