@@ -13,7 +13,7 @@ body{
                 #d9dbd7 15vh,
                 #d9dbd7 100%
             );
-        height: 100vh;
+        height: 95vh;
         font-family: sans-serif;
 }
 
@@ -100,4 +100,8 @@ i:hover{
 .messaggi-ricevuti{
     background-color: white;
     margin-left: 30px;
+}
+
+#barra-di-scrittura{
+    width: 100%;
 }

@@ -87,11 +87,11 @@
 
             <!-- Barra di scrittura -->
             <div id="barra-di-scrittura" class="background-leggerogrigio sticky-bottom">
-                <form class="d-flex p-1" role="search">
+                <div class="d-flex">
                     <button class="btn fs-3 ms-4" type="submit"><i class="fa-regular fa-face-smile" style="color: black;"></i></button>
-                    <input @keydown.down="nuovoMessaggio" v-model="newMessage" type="text" class="p-3 form-control mt-1 mx-4" placeholder="Scrivi un messaggio">
+                    <input @keydown.enter="nuovoMessaggio" id="barra-di-scrittura" v-model="newMessage" type="text" class="p-3 form-control mt- mx-4" placeholder="Scrivi un messaggio">
                     <button class="btn fs-3 me-4" type="submit"><i class="fa-solid fa-microphone" style="color: black;"></i></button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
